@@ -1,23 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import AddProduct from './components/AddProduct/AddProduct'
+import Header from './components/Header/Header';
+import Body from './components/Body/Body';
+import Footer from './components/Footer/Footer';
+import Products from './components/Products/Products';
+import Promo from './components/Promo/Promo';
+import Login from './components/Login/Login';
+import { ClientContext } from './components/ClientContext';
 
 function App() {
+  const [products, setProducts] = useState([]);
+  const [client, setClient] = useState({});
+  const [promo, setPromo] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <ClientContext.Provider
+        value={{ products, setProducts, promo, setPromo, client, setClient }}
+      >
+        <Router>
+          <Header />
+          <Switch>
+            <Route path='/login'>
+              <Login />
+            </Route>
+            <Route path='/promo'>
+              <Promo />
+            </Route>
+            <Route path='/products'>
+              <Products />
+            </Route>
+            <Route path='/addproduct'>
+              <AddProduct />
+            </Route>
+            <Route path='/'>
+              <Body />
+            </Route>
+          </Switch>
+          <Footer />
+        </Router>
+      </ClientContext.Provider>
     </div>
   );
 }
