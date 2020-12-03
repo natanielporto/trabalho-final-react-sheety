@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const Database = axios.create({
   baseURL:
-    'https://api.sheety.co/3f0a02a8040b1d01f8f7534cf7360a8f/lojaDeMusica/',
+    'https://api.sheety.co/a5e59e5039d3e822c09cd977663c025c/lojaDeMusica/',
 });
 
 export default Database;

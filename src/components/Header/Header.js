@@ -11,6 +11,9 @@ const Header = () => {
     history.push('/user');
   };
 
+  const addProduct =
+    client.client.email === 'natanielkporto@gmail.com' ? true : false;
+
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-primary'>
       <Link className='navbar-brand' to='/'>
@@ -40,7 +43,7 @@ const Header = () => {
               Outlet
             </Link>
           </li>
-          {client.client.email === 'natanielkporto@gmail.com' && (
+          {!addProduct && (
             <li className='nav-item'>
               <Link className='nav-link' to='/addproduct'>
                 Adicionar produtos
