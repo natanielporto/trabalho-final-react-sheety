@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import AddProduct from './components/AddProduct/AddProduct'
+import AddProduct from './components/AddProduct/AddProduct';
 import Header from './components/Header/Header';
 import Body from './components/Body/Body';
-import Footer from './components/Footer/Footer';
 import Products from './components/Products/Products';
 import Promo from './components/Promo/Promo';
 import Login from './components/Login/Login';
@@ -39,7 +38,6 @@ function App() {
               <Body />
             </Route>
           </Switch>
-          <Footer />
         </Router>
       </ClientContext.Provider>
     </div>
